@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - POLYGON_API_KEY=${POLYGON_API_KEY}
+    ports:
+      - "8080:8080"
