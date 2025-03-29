@@ -28,8 +28,21 @@ class StockApplication:
         root.mainloop()
 
 def main():
+    
     """Main entry point for the application"""
     app = StockApplication()
+
+
+    # Store a stock
+    stock_id = app.stock_handler.store_stock_data("AAPL", "Apple Inc.")
+    logging.info(f"Stored stock with ID: {stock_id}")
+
+    # Fetch all stocks
+    stocks = app.stock_handler.fetch_stocks()
+    logging.info(f"Stocks in database: {stocks}")
+
+
+
     
     try:
         app.run()
@@ -51,11 +64,6 @@ from utils.stock_data import StockDataHandler
 
 
 def main():
-    # Initialize the database manager
-    logging.basicConfig(level=logging.INFO)
-
-    # Initialize the database manager
-    stock_handler = StockDataHandler()
 
     # Store a stock
     stock_id = stock_handler.store_stock_data("AAPL", "Apple Inc.")
@@ -76,15 +84,4 @@ def main():
     # Fetch all stocks again
     stocks = stock_handler.fetch_stocks()
     logging.info(f"Stocks in database after deletion: {stocks}")
-
-    # Initialize the stock data handler
-
-    # Create the main application window
-    root = tk.Tk()
-    app = StockGridApp(root)
-    root.mainloop()
-
-
-if __name__ == "__main__":
-    main()
 """

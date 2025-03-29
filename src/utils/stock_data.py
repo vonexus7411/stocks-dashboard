@@ -16,7 +16,7 @@ class StockDataHandler:
         self.config = config or Config()
         self.db_manager = DatabaseManager(self.config.DB_FILE)
 
-    def store_stock_data(self, symbol: str, name: Path):
+    def store_stock_data(self, symbol: str, name: str):
         """Store stock information"""
         try:
             with sqlite3.connect(self.db_manager.db_file) as conn:
